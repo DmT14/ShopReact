@@ -1,0 +1,353 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcf0b8;
+    font-family: Georgia, serif;
+}
+
+#react-root {
+    height: 100vh;
+    
+    display: grid;
+    grid-template-areas:
+        "l  h  s  s"
+        "n  m  m  m"
+        "f  f  f  f";
+    grid-template-columns: 250px 2fr 1fr 1fr;
+    grid-template-rows: 1fr 6fr 10vh;
+    grid-auto-rows: auto;
+}
+
+
+/* Стили для логотипа */
+.logo {
+    padding: 20px;
+    
+    grid-area: l;
+    justify-self: end;
+}
+
+.logo img {
+    height: 100px;
+}
+/* ------------------ */
+
+
+/* Стили для заголовка */
+.header {
+    margin: 20px;
+    padding: 10px;
+
+    grid-area: h;
+    align-self: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 200%;
+}
+
+.header i {
+    font-size: 100%;
+}
+/* ------------------- */
+
+
+/* Стили для строки поиска */
+.searchline {
+    padding: 10px;
+
+    grid-area: s;
+    align-self: center;
+}
+
+.searchline form {
+    display: flex;
+    justify-content: center;
+}
+
+.searchline input[type="text"] {
+    width: 75%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 100%;
+    font-family: Georgia, serif;
+
+    justify-self: center; 
+}
+
+.searchline input[type="image"] {
+    width: 40px;
+    margin-left: 10px;
+    border: none;
+
+    justify-self: center;
+}
+
+.searchline img {
+    width: 40px;
+    margin-left: 10px;
+
+    justify-self: center;
+}
+
+.searchline img:hover {
+    cursor: pointer;
+}
+
+.searchline p {
+    width: 70%;
+    margin: 5px 0 0 7.5%;
+}
+/* ----------------------- */
+
+
+/* Стили для панели навигации */
+.nav {
+    padding: 10px;
+    border-top: 1px solid #000;
+
+    grid-area: n;    
+}
+
+.categories {
+    padding-left: 0;
+    list-style: none;
+
+    position: sticky;
+    top: 20px;
+}
+
+.categories>p {
+    margin: 0;
+    font-size: 125%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(43, 7, 7);
+}
+
+.categories a li {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #fffc97;
+    color: rgb(43, 7, 7);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.categories a li:hover {
+    background-color: #f1cf34;
+}
+
+.categories a li p {
+    margin: 0;
+    font-size: 100%;
+}
+/* -------------------------- */
+
+
+/* Стили для основного блока */
+.main {
+    padding: 10px;
+    border-top: 1px solid black;
+
+    grid-area: m;
+}
+
+.main h3 {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 150%;
+}
+
+.main>.product-list {
+    padding: 20px;
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 30px 30px;
+}
+
+.product {
+    color: rgb(43, 7, 7);
+    background-color: #fcfabb;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product:hover {
+    background-color: #f1cf34;
+    cursor: pointer;
+}
+
+.product>p {
+    width: 100%;
+    height: 20%;
+    margin: 5px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product>img {
+    width: 100%;
+}
+/* ------------------------- */
+
+
+/* Стили для подвала */
+.footer {
+    border-top: 1px solid black;
+    grid-area: f;
+    display: flex;
+}
+
+.footer p {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+/* ----------------- */
+
+
+
+
+@media all and (max-width: 1200px) {
+    #react-root {
+        grid-template-areas:
+            "l  h"
+            "l  s"
+            "n  m"
+            "f  f";
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: 1fr 1fr 6fr 10vh;
+    }
+
+    .header {
+        margin-bottom: 0;
+    }
+
+    .searchline {
+        padding-bottom: 20px;
+    }
+
+    .searchline form {
+        justify-content: flex-start;
+    }
+
+    .searchline input[type="text"] {
+        width: 380px;
+    }
+
+    .searchline p {
+        width: 380px;
+        margin: 5px 0 0 10px;
+    }
+}
+
+
+@media all and (max-width: 800px) {
+    #react-root {
+        grid-template-areas:
+            "l  h  h"
+            "s  s  s"
+            "n  n  n"
+            "m  m  m"
+            "f  f  f";
+        grid-template-columns: 175px 2fr 1fr;
+        grid-template-rows: 1fr 2fr auto 1fr 10vh;
+    }
+
+    .header {
+        margin-bottom: 0;
+    }
+
+    .searchline {
+        margin: 0 20px;
+    }
+
+    .searchline input[type="text"] {
+        width: 100%;
+    }
+
+    .searchline p {
+        width: 90%;
+    }
+
+    .nav {
+        padding: 0 30px;
+    }
+
+    .categories {
+        position: static;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: minmax(50px, auto);
+        gap: 10px 10px;
+    }
+
+    .categories>p {
+        display: none;
+    }
+
+    .categories a li {
+        height: 75%;
+        margin-top: 0;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .categories a li p {
+        display: inline;
+    }
+}
+
+
+@media all and (max-width: 550px) {
+    #react-root {
+        grid-template-areas:
+            "h"
+            "s"
+            "n"
+            "m"
+            "f";
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+
+@media all and (max-width: 495px) {
+    #react-root {
+        grid-template-areas:
+            "h"
+            "s"
+            "m"
+            "n"
+            "f";
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+}
